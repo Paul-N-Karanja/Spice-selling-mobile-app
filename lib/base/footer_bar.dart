@@ -25,8 +25,9 @@ class _FooterBarState extends State<FooterBar> {
   int _selectedIndex=0;
 
   void _onTapBottomNavBarItem(int index){
-    _selectedIndex=index;
-    print("index number is $_selectedIndex");
+    setState(() {
+      _selectedIndex=index;
+    });
   }
 
   @override
@@ -38,6 +39,7 @@ class _FooterBarState extends State<FooterBar> {
       ),
       body: appScreens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
         onTap: _onTapBottomNavBarItem,
           selectedItemColor: Colors.grey,
           unselectedItemColor: Colors.lightBlue,
